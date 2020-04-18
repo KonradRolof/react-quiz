@@ -28,15 +28,7 @@ class Quiz extends Component<QuizProps, any>{
   }
 
   componentDidMount() {
-    this.props.onGetQuestions();
-
-    fetch('/api/questions')
-      .then((res: any) => {
-        return res.json()
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    this.props.onGetQuestions('/api/questions');
   }
 
   enableNextButton(): boolean {
