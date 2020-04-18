@@ -54,6 +54,32 @@ const questionsArr = [
         isActive: false
       }
     ]
+  },
+  {
+    id: 3,
+    text: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus?',
+    answers: [
+      {
+        id: 9,
+        text: 'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa.',
+        isActive: false
+      },
+      {
+        id: 10,
+        text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+        isActive: false
+      },
+      {
+        id: 11,
+        text: 'Aenean commodo ligula eget dolor. Aenean massa.',
+        isActive: false
+      },
+      {
+        id: 12,
+        text: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        isActive: false
+      }
+    ]
   }
 ] as Array<QuestionInterface>;
 

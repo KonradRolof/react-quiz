@@ -3,20 +3,21 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { getQuestions, selectQuestionAnswer, incrementSteps, decrementSteps } from '../actions';
 import QuestionPanel from './QuestionPanel';
-import StepNav from "./StepNav";
-import ArrowNav from "./ArrowNav";
+import ResultsPanel from "./ResultsPanel";
+import StepNav from './StepNav';
+import ArrowNav from './ArrowNav';
 import QuestionInterface from '../interfaces/question.interface';
 import AnswerInterface from '../interfaces/answer.interface';
 import './Quiz.scss';
 
 type QuizProps = {
-  questions: Array<QuestionInterface>;
+  questions: Array<QuestionInterface>|null;
   steps: number;
   onGetQuestions: Function;
   onSelectQuestionAnswer: Function;
   onDecrementSteps: Function;
   onIncrementSteps: Function;
-  t: any;
+  t?: any;
 }
 
 class Quiz extends Component<QuizProps, any>{
@@ -92,6 +93,9 @@ class Quiz extends Component<QuizProps, any>{
                   }) }
                 </div>
               </div>
+            ) : null }
+            { steps > questions.length ? (
+              <ResultsPanel />
             ) : null }
             <ArrowNav
               onPrev={ this.props.onDecrementSteps }

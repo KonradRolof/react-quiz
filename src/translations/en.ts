@@ -3,7 +3,9 @@ const en = {
   'start now!': 'Jetzt starten!',
   'Question': 'Frage',
   'back': 'zurück',
-  'next': 'weiter'
+  'next': 'weiter',
+  'Finished!': 'Ziel erreicht!',
+  'This is your Result': 'Das ist dein Ergebnis',
 };
 
 export default en;
