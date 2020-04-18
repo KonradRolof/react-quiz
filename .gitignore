@@ -21,3 +21,66 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+### Sass template
+.sass-cache
+*.css.map
+
+### Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+lerna-debug.log
+
+### Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+### Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+### Dependency directories
+node_modules/
+jspm_packages/
+
+### TypeScript v1 declaration files
+typings/
+
+### TypeScript cache
+*.tsbuildinfo
+
+### Optional npm cache directory
+.npm
+
+### Optional eslint cache
+.eslintcache
+
+### Optional REPL history
+.node_repl_history
+
+### Output of 'npm pack'
+*.tgz
+
+### Yarn Integrity file
+.yarn-integrity
+
+## Directory-based project format:
+.idea/
+
+### Windows template
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## Windows shortcuts
+*.lnk
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
