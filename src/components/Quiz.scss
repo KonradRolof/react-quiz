@@ -40,4 +40,11 @@
 .Quiz__start-button {
   @include button;
   margin-bottom: 20px;
+
+  svg {
+    fill: currentColor;
+    height: 12px;
+    margin: 0 5px;
+    width: auto;
+  }
 }

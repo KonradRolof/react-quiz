@@ -9,6 +9,7 @@ import ArrowNav from './ArrowNav';
 import QuestionInterface from '../interfaces/question.interface';
 import AnswerInterface from '../interfaces/answer.interface';
 import './Quiz.scss';
+import { ReactComponent as ThreeDots } from '../assets/three-dots.svg';
 
 type QuizProps = {
   questions: Array<QuestionInterface>|null;
@@ -70,7 +71,11 @@ class Quiz extends Component<QuizProps, any>{
               className='Quiz__start-button'
               onClick={ this.props.onIncrementSteps }
               { ...startButtonOptions }
-            >{ t('start now!') }</button>
+            >
+              { questions ? t('start now!') : (
+                <ThreeDots />
+              ) }
+            </button>
           </div>
         ) : null }
         { questions && 0 < steps ? (
