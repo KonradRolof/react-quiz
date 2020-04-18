@@ -19,7 +19,7 @@ type ResultsPanelProps = {
 
 const chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
-class ResultsPanel extends Component<ResultsPanelProps, any>{
+export class ResultsPanel extends Component<ResultsPanelProps, any>{
   componentDidMount() {
     if (null === this.props.quizResults ) {
       this.props.onGetQuizResults('/api/results');
@@ -78,7 +78,7 @@ class ResultsPanel extends Component<ResultsPanelProps, any>{
     return (
       <div className="Results-panel">
         <div className="Results-panel__title">{ t('Finished!') }</div>
-        <div className="Results-panel__label">{ t('This is your Result') }:</div>
+        <div className="Results-panel__label">{ t('This is your result') }:</div>
         { quizResults !== null ? (
           <div className="Results-panel__result">
             { resultText }
@@ -106,6 +106,4 @@ const mapDispatchToProps = {
   onGetQuizResults: getQuizResults
 };
 
-const ResultsPanelContainer = connect(mapStateToProps, mapDispatchToProps)(ResultsPanel);
-
-export default withTranslation('krq')(ResultsPanelContainer);
+export default withTranslation('krq')(connect(mapStateToProps, mapDispatchToProps)(ResultsPanel));

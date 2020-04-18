@@ -1,9 +1,13 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import de from './translations/en';
+import en from './translations/en';
+import de from './translations/de';
 
 const resources = {
   en: {
+    krq: en
+  },
+  de: {
     krq: de
   }
 };

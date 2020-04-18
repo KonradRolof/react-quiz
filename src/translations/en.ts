@@ -1,11 +1,12 @@
 const en = {
-  'My Quiz': 'Mein Quiz',
-  'start now!': 'Jetzt starten!',
-  'Question': 'Frage',
-  'back': 'zurück',
-  'next': 'weiter',
-  'Finished!': 'Ziel erreicht!',
-  'This is your Result': 'Das ist dein Ergebnis',
+  'My Quiz': 'My Quiz',
+  'start now!': 'start now!',
+  'Question': 'Question',
+  'back': 'back',
+  'next': 'next',
+  'Finished!': 'Finished!',
+  'This is your result': 'This is your result',
+  'Sorry, There was an error loading the result.': 'Sorry, There was an error loading the result.',
 };
 
 export default en;

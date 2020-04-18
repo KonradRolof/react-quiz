@@ -21,7 +21,7 @@ type QuizProps = {
   t?: any;
 }
 
-class Quiz extends Component<QuizProps, any>{
+export class Quiz extends Component<QuizProps, any>{
   constructor(props: any) {
     super(props);
     this.enableNextButton = this.enableNextButton.bind(this);
@@ -133,6 +133,4 @@ const mapDispatchToProps = {
   onDecrementSteps: decrementSteps
 };
 
-const QuizContainer = connect(mapStateToProps, mapDispatchToProps)(Quiz);
-
-export default withTranslation('krq')(QuizContainer);
+export default withTranslation('krq')(connect(mapStateToProps, mapDispatchToProps)(Quiz));
