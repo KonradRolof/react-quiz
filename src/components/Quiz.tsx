@@ -12,9 +12,9 @@ type QuizProps = {
   questions: Array<QuestionInterface>;
   steps: number;
   onGetQuestions: Function;
-  selectQuestionAnswer: Function;
-  decrementSteps: Function;
-  incrementSteps: Function;
+  onSelectQuestionAnswer: Function;
+  onDecrementSteps: Function;
+  onIncrementSteps: Function;
 }
 
 class Quiz extends Component<QuizProps, any>{
@@ -64,34 +64,36 @@ class Quiz extends Component<QuizProps, any>{
             <button
               type='button'
               className='Quiz__start-button'
-              onClick={ this.props.incrementSteps }
+              onClick={ this.props.onIncrementSteps }
               { ...startButtonOptions }
             >starten</button>
           </div>
         ) : null }
         { questions && 0 < steps ? (
           <div>
-            <StepNav current={ steps - 1 } steps={ questions } />
             { steps <= questions.length ? (
-              <div className="Quiz__Questions">
-                { questions.map((question: QuestionInterface, index: number) => {
-                  return (
-                    <QuestionPanel
-                      key={ question.id.toString() }
-                      headline={ `Frage ${index + 1}` }
-                      answers={ question.answers }
-                      isActive={ index === steps - 1 }
-                      onSelect={ (answer: AnswerInterface) => this.props.selectQuestionAnswer(question, answer) }
-                    >
-                      { question.text }
-                    </QuestionPanel>
-                  )
-                }) }
+              <div>
+                <StepNav current={ steps - 1 } steps={ questions } />
+                <div className="Quiz__Questions">
+                  { questions.map((question: QuestionInterface, index: number) => {
+                    return (
+                      <QuestionPanel
+                        key={ question.id.toString() }
+                        headline={ `Frage ${index + 1}` }
+                        answers={ question.answers }
+                        isActive={ index === steps - 1 }
+                        onSelect={ (answer: AnswerInterface) => this.props.onSelectQuestionAnswer(question, answer) }
+                      >
+                        { question.text }
+                      </QuestionPanel>
+                    )
+                  }) }
+                </div>
               </div>
             ) : null }
             <ArrowNav
-              onPrev={ this.props.decrementSteps }
-              onNext={ this.props.incrementSteps }
+              onPrev={ this.props.onDecrementSteps }
+              onNext={ this.props.onIncrementSteps }
               current={ steps }
               allowNext={ this.enableNextButton() }
               hideNext={ this.hideNextButton() }
@@ -112,9 +114,9 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = {
   onGetQuestions: getQuestions,
-  selectQuestionAnswer: selectQuestionAnswer,
-  incrementSteps: incrementSteps,
-  decrementSteps: decrementSteps
+  onSelectQuestionAnswer: selectQuestionAnswer,
+  onIncrementSteps: incrementSteps,
+  onDecrementSteps: decrementSteps
 };
 
 const QuizContainer = connect(mapStateToProps, mapDispatchToProps)(Quiz);
