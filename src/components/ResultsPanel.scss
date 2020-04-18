@@ -1,0 +1,37 @@
+@import "../scss/vars";
+
+.Results-panel {
+  padding-bottom: 20px;
+}
+
+.Results-panel__title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.Results-panel__label {
+  margin-bottom: 5px;
+}
+
+.Results-panel__result {
+  background-color: lighten($primary, 40%);
+  font-size: 17px;
+  padding: 20px 26px;
+}
+
+.Results-panel__loader {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+
+  svg {
+    display: block;
+    fill: $grey-4;
+    height: 10px;
+    width: auto;
+  }
+}

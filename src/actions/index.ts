@@ -1,6 +1,7 @@
 import ActionInterface from '../interfaces/action.interface';
 import QuestionInterface from '../interfaces/question.interface';
 import AnswerInterface from '../interfaces/answer.interface';
+import QuizResultInterface from '../interfaces/quiz-result.interface';
 
 export function incrementSteps(): ActionInterface {
   return { type: 'INCREMENT_STEPS' };
@@ -11,12 +12,9 @@ export function decrementSteps(): ActionInterface {
 }
 
 export function getQuestions(apiUrl: string): Function {
-  // return { type: 'QUESTIONS_GET' }
   return (dispatch: Function) => {
     fetch(apiUrl)
-      .then((response: any) => {
-        return response.json()
-      })
+      .then((response: any) => response.json())
       .then((response) => {
         const questions = [] as Array<QuestionInterface>;
         response.forEach((item: QuestionInterface) => questions.push(item));
@@ -37,4 +35,16 @@ export function selectQuestionAnswer(question: QuestionInterface, answer: Answer
     type: 'QUESTIONS_SELECT_ANSWER',
     response: question
   } as ActionInterface;
+}
+
+export function getQuizResults(apiUrl: string): Function {
+  return (dispatch: Function) => {
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((response) => {
+        const quizResults = [] as Array<QuizResultInterface>;
+        response.forEach((item: QuizResultInterface) => quizResults.push(item));
+        dispatch({ type: 'QUIZ_RESULTS_GET', response: quizResults } as ActionInterface);
+      })
+  };
 }

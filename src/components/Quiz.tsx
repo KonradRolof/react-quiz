@@ -29,7 +29,9 @@ class Quiz extends Component<QuizProps, any>{
   }
 
   componentDidMount() {
-    this.props.onGetQuestions('/api/questions');
+    if (null === this.props.questions) {
+      this.props.onGetQuestions('/api/questions');
+    }
   }
 
   enableNextButton(): boolean {

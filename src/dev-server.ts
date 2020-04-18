@@ -55,5 +55,14 @@ new Server({
         }
       ]
     });
-  },
+
+    this.get('/results', () => {
+      return [
+        { id: 0, letter: 'A', description: 'Looks like you have a lot of responsibility so everyone can rely on you.' },
+        { id: 1, letter: 'B', description: 'You are a person of fun but when things getting tough you are reliable.' },
+        { id: 2, letter: 'C', description: 'You are overflowing with strength but self-control is your primary goal.' },
+        { id: 3, letter: 'D', description: 'Even if it\'s tough for you, you never lose focus.' }
+      ]
+    })
+  }
 });
