@@ -1,0 +1,33 @@
+@import "vars";
+
+@mixin button($bg-color: $primary, $color: $white) {
+  -webkit-appearance: none;
+  background-color: $bg-color;
+  border: 1px solid $bg-color;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba($black, .2);
+  color: $color;
+  cursor: pointer;
+  font-family: $font;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 10px 20px 8px;
+  text-transform: uppercase;
+  transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+
+  &[disabled] {
+    background-color: $grey-1;
+    border-color: $grey-1;
+    box-shadow: none;
+    cursor: default;
+  }
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      background-color: lighten($bg-color, 5%);
+      box-shadow: 0 2px 7px rgba($black, .3);
+    }
+  }
+}

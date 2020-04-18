@@ -1,0 +1,56 @@
+@import "../scss/vars";
+
+.Quiz__steps {
+  padding-bottom: 20px;
+}
+
+.Quiz__steps-list {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    + li {
+      margin-left: 10px;
+    }
+
+    &:not(:last-child)::before {
+      background-color: $grey-3;
+      content: " ";
+      height: 6px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      z-index: 0;
+    }
+  }
+}
+
+.Quiz__steps-item {
+  align-items: center;
+  background-color: $grey-3;
+  border-radius: 50%;
+  color: $white;
+  display: flex;
+  font-size: 14px;
+  font-weight: 800;
+  height: 26px;
+  justify-content: center;
+  position: relative;
+  width: 26px;
+  z-index: 1;
+
+  &.active {
+    background-color: $primary;
+  }
+}

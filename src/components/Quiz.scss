@@ -1,0 +1,43 @@
+@import "../scss/vars";
+@import "../scss/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+.Quiz {
+  background-color: $white;
+  border: 1px solid $grey-1;
+  box-shadow: 0 5px 20px rgba($black, .1);
+  box-sizing: border-box;
+  font-family: $font;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 40px;
+  max-width: 560px;
+  padding: 30px;
+  width: 100%;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.Quiz__front {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.Quiz__label {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.Quiz__start-button {
+  @include button;
+  margin-bottom: 20px;
+}

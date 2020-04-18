@@ -1,0 +1,16 @@
+@import "../scss/vars";
+@import "../scss/mixins";
+
+.Quiz__arrows {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Quiz__arrow {
+   @include button;
+}
+
+.Quiz__arrow--hide {
+  display: none;
+}

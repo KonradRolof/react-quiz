@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Quiz from './components/Quiz';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+import { createStore } from 'redux';
+import reduce from './reducers';
+import {Provider} from 'react-redux';
+
+const store = createStore(reduce);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Quiz />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
