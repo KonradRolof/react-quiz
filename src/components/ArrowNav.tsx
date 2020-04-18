@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation  } from 'react-i18next';
 import './ArrowNav.scss';
 
 type ArrowNavProps = {
@@ -10,6 +11,8 @@ type ArrowNavProps = {
 }
 
 function ArrowNav(props: ArrowNavProps) {
+  //  eslint-disable-next-line
+  const { t, i18n } = useTranslation('krq');
   const { onPrev, onNext, current, allowNext, hideNext } = props;
   const prevOptions = {} as any;
   const nextOptions = {} as any;
@@ -38,7 +41,7 @@ function ArrowNav(props: ArrowNavProps) {
         onClick={() => onPrev()}
         { ...prevOptions }
       >
-        zurück
+        { t('back') }
       </button>
       <button
         type='button'
@@ -46,7 +49,7 @@ function ArrowNav(props: ArrowNavProps) {
         onClick={() => onNext()}
         { ...nextOptions }
       >
-        weiter
+        { t('next') }
       </button>
     </div>
   );

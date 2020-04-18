@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 import { getQuestions, selectQuestionAnswer, incrementSteps, decrementSteps } from '../actions';
 import QuestionPanel from './QuestionPanel';
 import StepNav from "./StepNav";
@@ -15,6 +16,7 @@ type QuizProps = {
   onSelectQuestionAnswer: Function;
   onDecrementSteps: Function;
   onIncrementSteps: Function;
+  t: any;
 }
 
 class Quiz extends Component<QuizProps, any>{
@@ -49,7 +51,7 @@ class Quiz extends Component<QuizProps, any>{
   }
 
   render() {
-    const { questions, steps } = this.props;
+    const { questions, steps, t } = this.props;
     const startButtonOptions = {} as any;
 
     if (!questions) {
@@ -60,13 +62,13 @@ class Quiz extends Component<QuizProps, any>{
       <div className="Quiz">
         { 0 === steps ? (
           <div className='Quiz__front'>
-            <div className="Quiz__label">Mein Quiz</div>
+            <div className="Quiz__label">{ t('My Quiz') }</div>
             <button
               type='button'
               className='Quiz__start-button'
               onClick={ this.props.onIncrementSteps }
               { ...startButtonOptions }
-            >starten</button>
+            >{ t('start now!') }</button>
           </div>
         ) : null }
         { questions && 0 < steps ? (
@@ -79,7 +81,7 @@ class Quiz extends Component<QuizProps, any>{
                     return (
                       <QuestionPanel
                         key={ question.id.toString() }
-                        headline={ `Frage ${index + 1}` }
+                        headline={ `${t('Question')} ${index + 1}` }
                         answers={ question.answers }
                         isActive={ index === steps - 1 }
                         onSelect={ (answer: AnswerInterface) => this.props.onSelectQuestionAnswer(question, answer) }
@@ -121,4 +123,4 @@ const mapDispatchToProps = {
 
 const QuizContainer = connect(mapStateToProps, mapDispatchToProps)(Quiz);
 
-export default QuizContainer;
+export default withTranslation('krq')(QuizContainer);
