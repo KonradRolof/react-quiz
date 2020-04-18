@@ -26,8 +26,17 @@ class Quiz extends Component<QuizProps, any>{
     this.enableNextButton = this.enableNextButton.bind(this);
     this.hideNextButton = this.hideNextButton.bind(this);
   }
+
   componentDidMount() {
     this.props.onGetQuestions();
+
+    fetch('/api/questions')
+      .then((res: any) => {
+        return res.json()
+      })
+      .then((res) => {
+        console.log(res);
+      });
   }
 
   enableNextButton(): boolean {

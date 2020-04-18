@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './i18n';
+import './dev-server';
 import Quiz from './components/Quiz';
 import reduce from './reducers';
 import './index.css';
 
 const store = createStore(reduce);
-
 
 ReactDOM.render(
   <React.StrictMode>
