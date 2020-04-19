@@ -22,7 +22,7 @@ const chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 export class ResultsPanel extends Component<ResultsPanelProps, any>{
   componentDidMount() {
     if (null === this.props.quizResults ) {
-      this.props.onGetQuizResults(process.env.REACT_APP_API_RESULTS_GET_ALL);
+      this.props.onGetQuizResults();
     }
   }
 
