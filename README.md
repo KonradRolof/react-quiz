@@ -1,3 +1,19 @@
+React Quiz
+==========
+
+> Get questions from an API and make with a simple way a quiz like "What Harry Potter character are you?" or "What type of gamer are you?".
+
+## Tech stack
+
+* [Create React App](https://create-react-app.dev/docs)
+* [TypeScript](https://create-react-app.dev/docs/adding-typescript)
+* [React](https://reactjs.org/docs/getting-started.html)
+* [React Redux](https://react-redux.js.org/)
+* [Redux](https://redux.js.org/api/api-reference)
+* [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+* [React i18next](https://react.i18next.com/)
+* [mirage.js](https://miragejs.com/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
