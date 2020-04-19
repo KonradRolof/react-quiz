@@ -3,9 +3,11 @@ React Quiz
 
 > Get questions from an API and make with a simple way a quiz like "What Harry Potter character are you?" or "What type of gamer are you?".
 
+![alt gif animation as react app preview](https://user-images.githubusercontent.com/5076677/79695463-47783200-8277-11ea-9c3b-7fdc2b40c888.gif)
+
 ## Tech stack
 
-* [Create React App](https://create-react-app.dev/docs)
+* [Create React App](https://create-react-app.dev/docs/getting-started)
 * [TypeScript](https://create-react-app.dev/docs/adding-typescript)
 * [React](https://reactjs.org/docs/getting-started.html)
 * [React Redux](https://react-redux.js.org/)
