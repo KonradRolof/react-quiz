@@ -1,7 +1,12 @@
 {
-  "name": "quiz",
+  "name": "react-quiz",
   "version": "0.1.0",
-  "private": true,
+  "description": "Get questions from an API and make with a simple way a quiz like 'What Harry Potter character are you?' or 'What type of gamer are you?'",
+  "repository": "git@github.com:KonradRolof/react-quiz.git",
+  "author": "Konrad Rolof <info@konrad-rolof.de>",
+  "homepage": "https://github.com/KonradRolof/react-quiz",
+  "license": "GPL-3.0",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
