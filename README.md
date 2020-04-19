@@ -16,6 +16,14 @@ React Quiz
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Local API server with mirage.js
+
+The project uses mirage.js to simulate an API. Copy file `.env.dist` to `.env` and set `REACT_APP_ENV` to value `development`.
+
+```bash
+cp .env.dist .env
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
