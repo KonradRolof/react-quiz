@@ -16,7 +16,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
+    lng: process.env.REACT_APP_LANG ||'en',
     fallbackLng: 'en',
     interpolation: { escapeValue: false } // React already does escaping
   });

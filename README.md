@@ -16,13 +16,17 @@ React Quiz
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Local API server with mirage.js
+## Define API urls
 
 The project uses mirage.js to simulate an API. Copy file `.env.dist` to `.env` and set `REACT_APP_ENV` to value `development`.
 
 ```bash
 cp .env.dist .env
 ```
+To communicate with your API change the following environment keys:
+
+* API url to get all question: `REACT_APP_API_QUESTIONS_GET_ALL`
+* API url to get all possible quiz results: `REACT_APP_API_RESULTS_GET_ALL`
 
 ## Available Scripts
 

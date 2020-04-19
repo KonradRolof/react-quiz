@@ -30,7 +30,7 @@ export class Quiz extends Component<QuizProps, any>{
 
   componentDidMount() {
     if (null === this.props.questions) {
-      this.props.onGetQuestions('/api/questions');
+      this.props.onGetQuestions(process.env.REACT_APP_API_QUESTIONS_GET_ALL);
     }
   }
 
