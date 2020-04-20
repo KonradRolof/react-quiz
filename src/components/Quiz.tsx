@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { getQuestions, selectQuestionAnswer, incrementSteps, decrementSteps } from '../actions';
+import { getQuestions, selectQuestionAnswer, incrementSteps, decrementSteps, updateErrorMessage } from '../actions';
 import QuestionPanel from './QuestionPanel';
-import ResultsPanel from "./ResultsPanel";
+import ResultsPanel from './ResultsPanel';
 import StepNav from './StepNav';
 import ArrowNav from './ArrowNav';
+import ErrorMessage from './ErrorMessage';
 import QuestionInterface from '../interfaces/question.interface';
 import AnswerInterface from '../interfaces/answer.interface';
 import './Quiz.scss';
@@ -14,10 +15,12 @@ import { ReactComponent as ThreeDots } from '../assets/three-dots.svg';
 type QuizProps = {
   questions: Array<QuestionInterface>|null;
   steps: number;
+  errorMessage: string|null;
   onGetQuestions: Function;
   onSelectQuestionAnswer: Function;
   onDecrementSteps: Function;
   onIncrementSteps: Function;
+  onUpdateErrorMessage: Function;
   t?: any;
 }
 
@@ -56,7 +59,12 @@ export class Quiz extends Component<QuizProps, any>{
   }
 
   render() {
-    const { questions, steps, t } = this.props;
+    const {
+      questions,
+      steps,
+      errorMessage,
+      t
+    } = this.props;
     const startButtonOptions = {} as any;
 
     if (!questions) {
@@ -114,6 +122,9 @@ export class Quiz extends Component<QuizProps, any>{
             />
           </div>
         ) : null }
+        { errorMessage !== null ? (
+          <ErrorMessage message={errorMessage} onHide={ () => this.props.onUpdateErrorMessage(null) }/>
+        ) : null }
       </div>
     );
   }
@@ -122,7 +133,8 @@ export class Quiz extends Component<QuizProps, any>{
 const mapStateToProps = (state: any) => {
   return {
     questions: state.questions as Array<QuestionInterface>,
-    steps: state.steps
+    steps: state.steps,
+    errorMessage: state.errorMessage
   }
 };
 
@@ -130,7 +142,8 @@ const mapDispatchToProps = {
   onGetQuestions: getQuestions,
   onSelectQuestionAnswer: selectQuestionAnswer,
   onIncrementSteps: incrementSteps,
-  onDecrementSteps: decrementSteps
+  onDecrementSteps: decrementSteps,
+  onUpdateErrorMessage: updateErrorMessage,
 };
 
 export default withTranslation('krq')(connect(mapStateToProps, mapDispatchToProps)(Quiz));

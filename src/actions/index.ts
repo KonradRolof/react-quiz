@@ -26,7 +26,8 @@ export function getQuestions(): Function {
         dispatch({ type: 'QUESTIONS_GET', response: questions } as ActionInterface)
       })
       .catch((error) => {
-        // @TODO add error handling
+        console.error(error);
+        dispatch({ type: 'UPDATE_ERROR_MESSAGE', response: '' } as ActionInterface);
       });
   };
 }
@@ -55,7 +56,15 @@ export function getQuizResults(): Function {
         dispatch({ type: 'QUIZ_RESULTS_GET', response: quizResults } as ActionInterface);
       })
       .catch((error) => {
-        // @TODO add error handling
+        console.error(error);
+        dispatch({ type: 'UPDATE_ERROR_MESSAGE', response: '' } as ActionInterface);
       });
   };
+}
+
+export function updateErrorMessage(message: string|null): ActionInterface {
+  return {
+    type: 'UPDATE_ERROR_MESSAGE',
+    response: message
+  } as ActionInterface;
 }
