@@ -7,6 +7,7 @@ import ResultInterface from '../interfaces/result.interface';
 import QuizResultInterface from '../interfaces/quiz-result.interface';
 import './ResultsPanel.scss';
 import { ReactComponent as ThreeDots } from '../assets/three-dots.svg';
+import UserResultsApiService from "../services/user-results-api.service";
 
 type ResultsPanelProps = {
   questions: Array<QuestionInterface>|null;
@@ -22,6 +23,9 @@ type ResultsPanelProps = {
 const chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
 export class ResultsPanel extends Component<ResultsPanelProps, any>{
+  private dataPosted = false;
+  public userResultsApiService = new UserResultsApiService();
+
   componentDidMount() {
     if (null === this.props.quizResults ) {
       this.props.onGetQuizResults();
@@ -57,6 +61,18 @@ export class ResultsPanel extends Component<ResultsPanelProps, any>{
     return results;
   }
 
+  postUserResults() {
+    const { questions } = this.props;
+
+    if (null !== questions && !this.dataPosted) {
+      this.userResultsApiService
+        .post(questions)
+        .then((response) => console.info(response))
+        .catch((error) => console.error(error));
+      this.dataPosted = true;
+    }
+  }
+
   render() {
     const { t, quizResults } = this.props;
     const results = this.getResults();
@@ -83,6 +99,7 @@ export class ResultsPanel extends Component<ResultsPanelProps, any>{
         <div className="Results-panel__label">{ t('This is your result') }:</div>
         { quizResults !== null ? (
           <div className="Results-panel__result">
+            { this.postUserResults() }
             { resultText }
             <div className="Results-panel__footer">
               <button

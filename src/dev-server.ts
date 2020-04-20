@@ -7,7 +7,9 @@ export function makeServer(environment: string = 'test') {
       question: Model.extend({
         answers: hasMany()
       }),
-      answer: Model
+      answer: Model,
+      result: Model,
+      userResult: Model,
     },
 
     routes() {
@@ -65,7 +67,15 @@ export function makeServer(environment: string = 'test') {
           { id: 2, letter: 'C', description: 'You are overflowing with strength but self-control is your primary goal.' },
           { id: 3, letter: 'D', description: 'Even if it\'s tough for you, you never lose focus.' }
         ]
-      })
+      });
+
+      this.post('/user-results', (schema, request) => {
+        return [{
+          id: (Math.floor(1000 + (Math.random() * 9000))),
+          time: new Date().toISOString(),
+          results: JSON.parse(request.requestBody)
+        }]
+      });
     }
   });
 }
