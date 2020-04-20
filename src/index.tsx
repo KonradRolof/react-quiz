@@ -11,7 +11,7 @@ import './index.css';
 
 const store = createStore(reduce, applyMiddleware(thunk));
 
-if ('development' === process.env.REACT_APP_ENV) {
+if ('development' === process.env.NODE_ENV) {
   makeServer('development');
 }
 

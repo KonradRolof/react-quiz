@@ -18,17 +18,17 @@ React Quiz
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Define API urls
+## Environment variables
 
-The project uses mirage.js to simulate an API. Copy file `.env.dist` to `.env` and set `REACT_APP_ENV` to value `development`.
+Environment variables are defined for development (`yarn start`) and production (`yarn build`).
 
-```bash
-cp .env.dist .env
-```
-To communicate with your API change the following environment keys:
+| variable                          | description |
+| --------------------------------- | ----------- |
+| `REACT_APP_LANG`                  | Defines default language. Fallback is en. |
+| `REACT_APP_API_QUESTIONS_GET_ALL` | API url to get all question.              |
+| `REACT_APP_API_RESULTS_GET_ALL`   | API url to get all possible quiz results. |
 
-* API url to get all question: `REACT_APP_API_QUESTIONS_GET_ALL`
-* API url to get all possible quiz results: `REACT_APP_API_RESULTS_GET_ALL`
+To get your API to work change variable values inside `.env.production`. For development environment the API data is simulated by mirage.js (See `dev-server.ts`).
 
 ## Available Scripts
 
@@ -56,16 +56,6 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
