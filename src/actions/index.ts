@@ -16,6 +16,10 @@ export function decrementSteps(): ActionInterface {
   return { type: 'DECREMENT_STEPS' };
 }
 
+export function resetSteps(): ActionInterface {
+  return { type: 'RESET_STEPS' };
+}
+
 export function getQuestions(): Function {
   return (dispatch: Function) => {
     questionApiService
@@ -44,6 +48,10 @@ export function selectQuestionAnswer(question: QuestionInterface, answer: Answer
     type: 'QUESTIONS_SELECT_ANSWER',
     response: question
   } as ActionInterface;
+}
+
+export function resetQuestionAnswers(): ActionInterface {
+  return { type: 'QUESTIONS_REST_ANSWERS' };
 }
 
 export function getQuizResults(): Function {

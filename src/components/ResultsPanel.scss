@@ -1,4 +1,5 @@
 @import "../scss/vars";
+@import "../scss/mixins";
 
 .Results-panel {
   padding-bottom: 20px;
@@ -17,9 +18,18 @@
 }
 
 .Results-panel__result {
-  background-color: lighten($primary, 40%);
   font-size: 17px;
-  padding: 20px 26px;
+  font-weight: 800;
+  padding: 20px 0;
+}
+
+.Results-panel__footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.Results-panel__reset {
+  @include button;
 }
 
 .Results-panel__loader {

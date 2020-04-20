@@ -108,18 +108,18 @@ export class Quiz extends Component<QuizProps, any>{
                     )
                   }) }
                 </div>
+                <ArrowNav
+                  onPrev={ this.props.onDecrementSteps }
+                  onNext={ this.props.onIncrementSteps }
+                  current={ steps }
+                  allowNext={ this.enableNextButton() }
+                  hideNext={ this.hideNextButton() }
+                />
               </div>
             ) : null }
             { steps > questions.length ? (
               <ResultsPanel />
             ) : null }
-            <ArrowNav
-              onPrev={ this.props.onDecrementSteps }
-              onNext={ this.props.onIncrementSteps }
-              current={ steps }
-              allowNext={ this.enableNextButton() }
-              hideNext={ this.hideNextButton() }
-            />
           </div>
         ) : null }
         { errorMessage !== null ? (

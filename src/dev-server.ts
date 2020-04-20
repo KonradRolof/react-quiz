@@ -1,4 +1,4 @@
-import {Server, Model, hasMany} from 'miragejs';
+import { Server, Model, hasMany } from 'miragejs';
 
 export function makeServer(environment: string = 'test') {
   return new Server({

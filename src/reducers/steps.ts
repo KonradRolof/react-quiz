@@ -11,6 +11,10 @@ function steps(state = initialState, action: ActionInterface): number {
     return 0 < state ? state - 1 : state;
   }
 
+  if ('RESET_STEPS' === action.type) {
+    return initialState;
+  }
+
   return state;
 }
 

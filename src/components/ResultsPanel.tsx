@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { decrementSteps, getQuizResults } from '../actions';
+import { decrementSteps, getQuizResults, resetQuestionAnswers, resetSteps } from '../actions';
 import QuestionInterface from '../interfaces/question.interface';
 import ResultInterface from '../interfaces/result.interface';
 import QuizResultInterface from '../interfaces/quiz-result.interface';
@@ -14,6 +14,8 @@ type ResultsPanelProps = {
   steps: number;
   onDecrementSteps: Function;
   onGetQuizResults: Function;
+  onResetQuestionAnswers: Function;
+  onResetSteps: Function;
   t?: any;
 }
 
@@ -82,6 +84,18 @@ export class ResultsPanel extends Component<ResultsPanelProps, any>{
         { quizResults !== null ? (
           <div className="Results-panel__result">
             { resultText }
+            <div className="Results-panel__footer">
+              <button
+                type='button'
+                className='Results-panel__reset'
+                onClick={() => {
+                  this.props.onResetQuestionAnswers();
+                  this.props.onResetSteps();
+                }}
+              >
+                { t('Restart Quiz') }
+              </button>
+            </div>
           </div>
         ) : (
           <div className="Results-panel__loader">
@@ -103,7 +117,9 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = {
   onDecrementSteps: decrementSteps,
-  onGetQuizResults: getQuizResults
+  onGetQuizResults: getQuizResults,
+  onResetQuestionAnswers: resetQuestionAnswers,
+  onResetSteps: resetSteps,
 };
 
 export default withTranslation('krq')(connect(mapStateToProps, mapDispatchToProps)(ResultsPanel));

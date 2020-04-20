@@ -24,6 +24,20 @@ function questions(state: Array<QuestionInterface>|null = initialState, action: 
     return state;
   }
 
+  if ('QUESTIONS_REST_ANSWERS' === action.type) {
+    if (null !== state) {
+      const questions = [...state];
+
+      questions.forEach((question) => {
+        question.answers.forEach((answer) => answer.isActive = false);
+      });
+
+      return questions;
+    }
+
+    return state;
+  }
+
   return state;
 }
 
