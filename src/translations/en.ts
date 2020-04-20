@@ -7,6 +7,7 @@ const en = {
   'Finished!': 'Finished!',
   'This is your result': 'This is your result',
   'Sorry, There was an error loading the result.': 'Sorry, There was an error loading the result.',
+  'Restart Quiz': 'Restart Quiz',
 };
 
 export default en;

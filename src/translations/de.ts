@@ -7,6 +7,7 @@ const de = {
   'Finished!': 'Ziel erreicht!',
   'This is your result': 'Das ist dein Ergebnis',
   'Sorry, There was an error loading the result.': 'Sorry. Es gab einen Fehler beim Laden des Ergebnisses.',
+  'Restart Quiz': 'Quiz erneut starten',
 };
 
 export default de;
